@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Site random</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 70px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .images img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function afiseazaData() {
+            const dataSelectata = document.getElementById("data").value;
+            document.getElementById("afisareData").innerText = dataSelectata;
+        }
+
+        function includeHTML(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+
+        window.onload = function() {
+            includeHTML("navbar-container", "navbar.html");
+            includeHTML("continut-container", "continut.html");
+            includeHTML("footer-container", "footer.html");
+        };
+    </script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <div id="continut-container"></div>
+    <div id="footer-container"></div>
+</body>
+</html>

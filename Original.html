@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Site random</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 70px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 100px; 
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .images img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        function afiseazaData() {
+            const dataSelectata = document.getElementById("data").value;
+            document.getElementById("afisareData").innerText = dataSelectata;
+        }
+    </script>
+</head>
+<body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="10" style="background-color: #007BFF; text-align: center; color: white;">
+        <tr>
+            <td colspan="2">
+                <h1>Practică de inițiere RC-241</h1>
+            </td>
+        </tr>
+    </table>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+            <td align="left">Apostol Lucian</td>
+            <td align="right">Apostol Lucian</td>
+        </tr>
+    </table>
+
+    <div style="display: flex; margin-top: 20px; justify-content: space-around; align-items: center;">
+        <div>
+            <div class="box">Salut!</div>
+            <div class="images">
+                <img src="https://i.pinimg.com/736x/a5/49/d5/a549d5a6e4c3f04d6346a6fab7fef112.jpg" alt="Imagine 1">
+            </div>
+        </div>
+        <div>
+            <div class="box">
+                <select id="priority" name="priority">
+                    <option value="mediu">Mediu</option>
+                    <option value="important">Important</option>
+                </select>
+            </div>
+            <div class="images">
+                <img src="https://i.pinimg.com/736x/ee/40/fd/ee40fdd9c7af19a0c5234440c06a6b46.jpg" alt="Imagine 2">
+            </div>
+        </div>
+        <div>
+            <div class="box">
+                <input type="date" id="data" onchange="afiseazaData()">
+            </div>
+            <div id="afisareData" style="text-align: center; margin-top: 10px; font-weight: bold;"></div>
+            <div class="images">
+                <img src="https://i.pinimg.com/736x/96/60/c4/9660c400bb40d456703eeb4bd8c85da0.jpg" alt="Imagine 3">
+            </div>
+        </div>
+    </div>
+    <div class="answer-section">
+        <div>
+            <label>
+                <input type="radio">
+                <span>Varianta corectă este:</span>
+            </label>
+        </div>
+        <div style="margin-top: 20px;">
+            <label>
+                <input type="checkbox">
+                <span>Răspuns: Răspuns corect</span>
+            </label>
+        </div>
+    </div>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="10" style="background-color: #007BFF; color: black; position: fixed; bottom: 0;">
+        <tr>
+            <td align="left">Apostol Lucian</td>
+            <td align="right">Apostol Lucian</td>
+        </tr>
+    </table>
+</body>
+</html>
