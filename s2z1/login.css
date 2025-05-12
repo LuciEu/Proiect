@@ -93,3 +93,43 @@ input::placeholder {
     border-radius: 5px;
     cursor: pointer;
   }
+  header {
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fixează header-ul în partea de sus */
+    top: 0; /* Poziționează header-ul la marginea de sus */
+    width: 100%; /* Lățimea completă a paginii */
+    z-index: 1000; /* Asigură-te că header-ul este deasupra altor elemente */
+}
+
+body {
+    margin: 0;
+    padding-top: 60px; /* Adaugă spațiu pentru a evita suprapunerea cu header-ul */
+}
+
+header .nav-buttons button {
+    background-color: #c2c2c2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header .nav-buttons button:hover {
+    background-color: #a0a0a0;
+}
+footer {
+    background-color: #444;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
