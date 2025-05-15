@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ping pong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
   <link rel="stylesheet" href="game.css">
+  <link rel="stylesheet" href="../Footer/footer.css">
+  <link rel="stylesheet" href="../Navbar/navbar.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <script src="../script.js"></script>
 </head>
 <body>
-  <header class="navbar">
-    <a href="../Home/home.html">Acasă</a>
-    <a href="../Game/game.html">Joacă</a>
-    <a href="#despre">Despre</a>
-    <a href="#contact">Contact</a>
-  </header>
+<div id="header-container"></div>
   <canvas id="pong" width="600" height="400"></canvas>
+  <button id="pauseBtn">Pauză</button>
   <button id="restartBtn">Restart</button>
   <script src="game.js"></script>
-
-  <footer class="footer">
-    &copy; 2025 Joaca Mea. Toate drepturile rezervate.
-  </footer>
+<div id="footer-container"></div>
 </body>
 </html>
