@@ -174,3 +174,45 @@ a.button:hover {
 #pauseBtn:hover, #restartBtn:hover {
   background-color: #343434;
 }
+
+/* ICONIȚĂ SCHIMBARE TEMĂ */
+#toggle-theme {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.1); /* fundal discret în dark mode */
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1500;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover în dark mode */
+#toggle-theme:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Fundal în light mode */
+body:not(.dark) #toggle-theme {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+body:not(.dark) #toggle-theme:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Stil pentru SVG sau FontAwesome */
+#toggle-theme svg,
+#toggle-theme i {
+  width: 20px;
+  height: 20px;
+  color: white;
+  transition: color 0.3s ease;
+}
+body:not(.dark) #toggle-theme svg,
+body:not(.dark) #toggle-theme i {
+  color: black;
+}

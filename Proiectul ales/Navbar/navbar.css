@@ -1,43 +1,54 @@
+/* TEMA IMPLICITĂ (dark mode) */
 body {
-    overflow: hidden;
-    margin: 0;
-    background-color: rgb(70, 70, 70);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    padding-top: 60px;
-    flex-direction: column;
-  }
+  overflow: hidden;
+  margin: 0;
+  background-color: rgb(70, 70, 70);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  padding-top: 60px;
+  flex-direction: column;
+}
 
+/* Light mode */
+body:not(.dark) {
+  background-color: #f4f4f4;
+  color: #222;
+}
 
-  
-  canvas {
-    background: #222;
-    display: block;
-    box-shadow: 0 0 20px #fff;
-  }
-  
-  #restartBtn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    display: none;
-  }
-  
-  #restartBtn:hover {
-    background: #ccc;
-  }
+/* CANVAS */
+canvas {
+  background: #222;
+  display: block;
+  box-shadow: 0 0 20px #fff;
+}
+body:not(.dark) canvas {
+  background: #ddd;
+  box-shadow: 0 0 20px #999;
+}
 
+/* BUTON RESTART */
+#restartBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+}
+#restartBtn:hover {
+  background: #ccc;
+}
+
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -46,9 +57,12 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 15px 30px;
   display: flex;
-  justify-content: space-around; /* Împarte în stânga/dreapta */
+  justify-content: space-around;
   align-items: center;
   z-index: 1000;
+}
+body:not(.dark) .navbar {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-left,
@@ -63,11 +77,14 @@ body {
   font-weight: bold;
   transition: color 0.3s;
 }
-
+body:not(.dark) .navbar a {
+  color: black;
+}
 .navbar a:hover {
   color: #2ecc71;
 }
 
+/* CONTENT */
 .main-content {
   flex-grow: 1;
   display: flex;
@@ -97,11 +114,11 @@ a.button {
   border-radius: 10px;
   transition: background-color 0.3s;
 }
-
 a.button:hover {
   background-color: #27ae60;
 }
 
+/* FOOTER */
 .footer {
   position: fixed;
   bottom: 0;
@@ -113,4 +130,49 @@ a.button:hover {
   font-size: 0.9em;
   z-index: 1000;
 }
+body:not(.dark) .footer {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+}
 
+/* ICONIȚĂ SCHIMBARE TEMĂ */
+#toggle-theme {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.1); /* fundal discret în dark mode */
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1500;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover în dark mode */
+#toggle-theme:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Fundal în light mode */
+body:not(.dark) #toggle-theme {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+body:not(.dark) #toggle-theme:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Stil pentru SVG sau FontAwesome */
+#toggle-theme svg,
+#toggle-theme i {
+  width: 20px;
+  height: 20px;
+  color: white;
+  transition: color 0.3s ease;
+}
+body:not(.dark) #toggle-theme svg,
+body:not(.dark) #toggle-theme i {
+  color: black;
+}

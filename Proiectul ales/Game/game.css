@@ -1,25 +1,39 @@
+/* TEMA IMPLICITĂ (dark mode) */
 body {
-    overflow: hidden;
-    margin: 0;
-    background-color: rgb(70, 70, 70);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    padding-top: 60px;
-    flex-direction: column;
-  }
+  overflow: hidden;
+  margin: 0;
+  background-color: rgb(70, 70, 70);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  padding-top: 60px;
+  flex-direction: column;
+}
 
-  canvas {
-    background: #222;
-    display: block;
-    box-shadow: 0 0 20px #fff;
-  }
-  
-#restartBtn {
+/* Light mode */
+body:not(.dark) {
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+/* CANVAS */
+canvas {
+  background: #222;
+  display: block;
+  box-shadow: 0 0 20px #fff;
+}
+body:not(.dark) canvas {
+  background: #ddd;
+  box-shadow: 0 0 20px #999;
+}
+
+/* BUTON RESTART + PAUSE */
+#restartBtn,
+#pauseBtn {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -32,11 +46,24 @@ body {
   transition: background-color 0.3s ease;
   display: none;
 }
+#pauseBtn {
+  display: inline-block; /* dacă îl folosești */
+}
+#restartBtn:hover,
+#pauseBtn:hover {
+  background-color: #343434;
+}
+body:not(.dark) #restartBtn,
+body:not(.dark) #pauseBtn {
+  background-color: white;
+  color: black;
+}
+body:not(.dark) #restartBtn:hover,
+body:not(.dark) #pauseBtn:hover {
+  background-color: #ccc;
+}
 
-  #restartBtn:hover {
-    background: #000000;
-  }
-
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -45,9 +72,12 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 15px 30px;
   display: flex;
-  justify-content: space-around; /* Împarte în stânga/dreapta */
+  justify-content: space-around;
   align-items: center;
   z-index: 1000;
+}
+body:not(.dark) .navbar {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-left,
@@ -62,11 +92,17 @@ body {
   font-weight: bold;
   transition: color 0.3s;
 }
-
 .navbar a:hover {
   color: #2ecc71;
 }
+body:not(.dark) .navbar a {
+  color: black;
+}
+body:not(.dark) .navbar a:hover {
+  color: #2ecc71;
+}
 
+/* MAIN CONTENT */
 .main-content {
   flex-grow: 1;
   display: flex;
@@ -96,11 +132,18 @@ a.button {
   border-radius: 10px;
   transition: background-color 0.3s;
 }
-
 a.button:hover {
   background-color: #27ae60;
 }
+body:not(.dark) a.button {
+  background-color: #2ecc71;
+  color: white;
+}
+body:not(.dark) a.button:hover {
+  background-color: #27ae60;
+}
 
+/* FOOTER */
 .footer {
   position: fixed;
   bottom: 0;
@@ -112,7 +155,12 @@ a.button:hover {
   font-size: 0.9em;
   z-index: 1000;
 }
+body:not(.dark) .footer {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+}
 
+/* CONTAINER JOC */
 .game-container {
   display: flex;
   flex-direction: column;
@@ -121,19 +169,44 @@ a.button:hover {
   gap: 15px;
 }
 
-#pauseBtn, #restartBtn {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #000000;
-  color: white;
-  border: none;
-  border-radius: 8px;
+/* ICONIȚĂ SCHIMBARE TEMĂ */
+#toggle-theme {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.1); /* fundal discret în dark mode */
+  padding: 10px;
+  border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1500;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#pauseBtn:hover, #restartBtn:hover {
-  background-color: #343434;
+/* Hover în dark mode */
+#toggle-theme:hover {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Fundal în light mode */
+body:not(.dark) #toggle-theme {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+body:not(.dark) #toggle-theme:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Stil pentru SVG sau FontAwesome */
+#toggle-theme svg,
+#toggle-theme i {
+  width: 20px;
+  height: 20px;
+  color: white;
+  transition: color 0.3s ease;
+}
+body:not(.dark) #toggle-theme svg,
+body:not(.dark) #toggle-theme i {
+  color: black;
+}
