@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recenzii și Chat</title>
-  <link rel="stylesheet" href="recenzii.css" />
-  <link rel="stylesheet" href="../Navbar/navbar.css" />
-  <link rel="stylesheet" href="../Footer/footer.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recenzii</title>
+  <link rel="stylesheet" href="recenzii.css">
+  <link rel="stylesheet" href="../Footer/footer.css">
+  <link rel="stylesheet" href="../Navbar/navbar.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
   <script src="../script.js" defer></script>
 </head>
-<body>
+<body class="dark">
   <div id="header-container"></div>
-  <div id="continut-6"></div>
+
+  <div class="container">
+    <h1>Lasă o recenzie</h1>
+    <form id="reviewForm" onsubmit="event.preventDefault(); addReview();">
+      <input type="text" id="name" placeholder="Nume">
+      <input type="number" id="stars" placeholder="Stele (1-5)" min="1" max="5">
+      <textarea id="text" placeholder="Scrie recenzia..." rows="5"></textarea>
+      <button type="submit">Trimite</button>
+    </form>
+
+    <div id="reviews-container"></div>
+
+    <div id="paginationControls">
+      <button class="page-btn" data-page="1">1</button>
+      <button class="page-btn" data-page="2">2</button>
+      <button class="page-btn" data-page="next">→</button>
+      <button class="categories-button">All Reviews</button>
+    </div>
+  </div>
+
   <div id="footer-container"></div>
+
+  <div id="toggle-theme" title="Schimbă tema">
+    <i class="fas fa-moon"></i>
+  </div>
 
   <script src="recenzii.js"></script>
 </body>

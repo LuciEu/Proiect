@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHTML("#continut-4", "../Continut/continut4.html");
   loadHTML("#continut-5", "../Continut/continut5.html");
   loadHTML("#continut-6", "../Continut/continut6.html");
+  loadHTML("#continut-7", "../Continut/continut7.html");
 });
 
 function initThemeToggle() {

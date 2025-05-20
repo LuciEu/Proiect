@@ -1,0 +1,36 @@
+  <main class="container">
+    <h1>Lasă o recenzie</h1>
+
+    <form id="recenzieForm">
+      <input type="text" id="nume" placeholder="Numele tău" required>
+      
+      <div class="rating">
+        <label>Rating:</label>
+        <div class="stele" id="stele">
+          <span data-val="1">&#9734;</span>
+          <span data-val="2">&#9734;</span>
+          <span data-val="3">&#9734;</span>
+          <span data-val="4">&#9734;</span>
+          <span data-val="5">&#9734;</span>
+        </div>
+      </div>
+
+      <textarea id="mesajRecenzie" rows="6" placeholder="Scrie recenzia detaliat..." required></textarea>
+      <button type="submit">Trimite Recenzie</button>
+    </form>
+
+    <div id="recenziiListContainer">
+      <h2>Recenzii:</h2>
+      <div id="recenziiList"></div>
+      <div id="paginationControls">
+            <div class="pagination mt-8 flex justify-center">
+  <button class="page-btn active" data-page="1">1</button>
+  <button class="page-btn" data-page="2">2</button>
+  <button class="page-btn" data-page="3">3</button>
+  <button class="page-btn" data-page="next">›</button>
+</div>
+
+
+      </div>
+    </div>
+  </main>
